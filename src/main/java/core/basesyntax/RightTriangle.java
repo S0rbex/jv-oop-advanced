@@ -13,12 +13,12 @@ public class RightTriangle extends Figure {
     }
 
     @Override
-    public double calculateFigureArea() {
+    public double getArea() {
         return (side * side * Math.sqrt(3)) / 4;
     }
 
     @Override
-    public void drawFigure() {
+    public void draw() {
         System.out.println("Right RightTriangle");
     }
 }

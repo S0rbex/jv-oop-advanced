@@ -1,7 +1,7 @@
 package core.basesyntax;
 
 public class Circle extends Figure {
-    private double radius;
+    private final double radius;
 
     public Circle(String color, double radius) {
         super(color);
@@ -13,18 +13,14 @@ public class Circle extends Figure {
     }
 
     @Override
-    public double calculateFigureArea() {
+    public double getArea() {
         return Math.PI * radius * radius;
     }
 
     @Override
-    public void drawFigure() {
+    public void draw() {
         System.out.println("Figure: circle, area: "
-                + calculateFigureArea()
-                + ". The radius = "
-                + getRadius()
-                + ", the color is "
-                + getColor());
+                + String.format("%.2f", getArea()) + " sq. units, radius: "
+                + radius + " units, color: " + getColor());
     }
-
 }

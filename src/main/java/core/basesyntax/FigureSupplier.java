@@ -1,28 +1,42 @@
 package core.basesyntax;
 
-import java.util.List;
 import java.util.Random;
 
 public class FigureSupplier {
-    private static final Random RANDOM = new Random();
+    private static final int MAX_SIZE = 20;
+    private static final int DEFAULT_RADIUS = 10;
 
-    public static Figure getRandomFigure() {
+    private final Random random = new Random();
+    private final ColorSupplier colorSupplier = new ColorSupplier();
 
-        List<Figure> randomFigure = List.of(
-                new Circle(ColorSupplier.getRandomColor(),
-                        1.0 + 19.0 * RANDOM.nextDouble()),
-                new Rectangle(ColorSupplier.getRandomColor(),
-                        1 + RANDOM.nextInt(20),
-                        1 + RANDOM.nextInt(20)),
-                new Square(ColorSupplier.getRandomColor(),
-                        1 + RANDOM.nextInt(20)));
+    public Figure getRandomFigure() {
+        int type = random.nextInt(5); // 5 фігур
+        String color = colorSupplier.getRandomColor();
 
-        int randomIndex = RANDOM.nextInt(randomFigure.size());
-        return randomFigure.get(randomIndex);
+        switch (type) {
+            case 0:
+                double radius = 1 + random.nextInt(MAX_SIZE);
+                return new Circle(color, radius);
+            case 1:
+                int side = 1 + random.nextInt(MAX_SIZE);
+                return new Square(color, side);
+            case 2:
+                int width = 1 + random.nextInt(MAX_SIZE);
+                int height = 1 + random.nextInt(MAX_SIZE);
+                return new Rectangle(color, width, height);
+            case 3:
+                int base = 1 + random.nextInt(MAX_SIZE);
+                int triHeight = 1 + random.nextInt(MAX_SIZE);
+                return new RightTriangle(color, base, triHeight);
+            default:
+                int base1 = 1 + random.nextInt(MAX_SIZE);
+                int base2 = 1 + random.nextInt(MAX_SIZE);
+                int trapHeight = 1 + random.nextInt(MAX_SIZE);
+                return new IsoscelesTrapezoid(color, base1, base2, trapHeight);
+        }
     }
 
-    public static Figure getDefaultFigure() {
-        return new Circle("white", 10);
+    public Figure getDefaultFigure() {
+        return new Circle("White", DEFAULT_RADIUS);
     }
-
 }

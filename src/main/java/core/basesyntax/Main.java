@@ -1,20 +1,20 @@
 package core.basesyntax;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
-        List<Figure> figureList;
-        figureList = new ArrayList<>(List.of(
-                FigureSupplier.getRandomFigure(),
-                FigureSupplier.getRandomFigure(),
-                FigureSupplier.getRandomFigure(),
-                FigureSupplier.getDefaultFigure()));
+        FigureSupplier figureSupplier = new FigureSupplier();
 
-        for (Figure figure : figureList) {
-            figure.drawFigure();
+        Figure[] figures = new Figure[10];
+
+        for (int i = 0; i < figures.length / 2; i++) {
+            figures[i] = figureSupplier.getRandomFigure();
+        }
+        for (int i = figures.length / 2; i < figures.length; i++) {
+            figures[i] = figureSupplier.getDefaultFigure();
+        }
+
+        for (Figure figure : figures) {
+            figure.draw();
         }
     }
-
 }

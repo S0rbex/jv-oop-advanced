@@ -1,36 +1,33 @@
 package core.basesyntax;
 
 public class Rectangle extends Figure {
-    private int side1;
-    private int side2;
+    private final int width;
+    private final int height;
 
-    public Rectangle(String color, int side1, int side2) {
+    public Rectangle(String color, int width, int height) {
         super(color);
-        this.side1 = side1;
-        this.side2 = side2;
+        this.width = width;
+        this.height = height;
     }
 
-    public int getSide2() {
-        return side2;
+    public int getWidth() {
+        return width;
     }
 
-    public int getSide1() {
-        return side1;
-    }
-
-    @Override
-    public double calculateFigureArea() {
-        return side1 * side2;
+    public int getHeight() {
+        return height;
     }
 
     @Override
-    public void drawFigure() {
+    public double getArea() {
+        return width * height;
+    }
+
+    @Override
+    public void draw() {
         System.out.println("Figure: rectangle, area: "
-                + calculateFigureArea()
-                + ". The side1 = "
-                + getSide1()
-                + ", the side2 = "
-                + getSide2()
-                + ", the color is " + getColor());
+                + getArea() + " sq. units, width: "
+                + width + " units, height: "
+                + height + " units, color: " + getColor());
     }
 }

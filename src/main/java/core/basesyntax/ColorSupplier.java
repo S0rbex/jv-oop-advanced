@@ -4,13 +4,11 @@ import java.util.List;
 import java.util.Random;
 
 public class ColorSupplier {
-    private static final Random RANDOM = new Random();
+    private final Random random = new Random();
+    private final List<String> colors = List.of("Red", "Blue", "Yellow", "White", "Purple");
 
-    public static String getRandomColor() {
-        List<String> colors = List.of("Red", "Blue", "Yellow", "White", "Purple");
-
-        int randomIndex = RANDOM.nextInt(colors.size());
-        return colors.get(randomIndex);
+    public String getRandomColor() {
+        int index = random.nextInt(colors.size());
+        return colors.get(index);
     }
-
 }
