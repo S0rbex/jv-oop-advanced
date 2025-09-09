@@ -33,5 +33,4 @@ public class Rectangle extends Figure {
                 + getSide2()
                 + ", the color is " + getColor());
     }
-
 }
