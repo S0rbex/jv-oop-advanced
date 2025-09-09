@@ -25,9 +25,8 @@ public class FigureSupplier {
                 int height = 1 + random.nextInt(MAX_SIZE);
                 return new Rectangle(color, width, height);
             case 3:
-                int base = 1 + random.nextInt(MAX_SIZE);
-                int triHeight = 1 + random.nextInt(MAX_SIZE);
-                return new RightTriangle(color, base, triHeight);
+                int triSide = 1 + random.nextInt(MAX_SIZE);
+                return new RightTriangle(color, triSide);
             default:
                 int base1 = 1 + random.nextInt(MAX_SIZE);
                 int base2 = 1 + random.nextInt(MAX_SIZE);
