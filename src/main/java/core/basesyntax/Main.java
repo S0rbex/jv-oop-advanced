@@ -1,5 +1,6 @@
 package core.basesyntax;
 
+//jest
 public class Main {
     public static void main(String[] args) {
         FigureSupplier figureSupplier = new FigureSupplier();
