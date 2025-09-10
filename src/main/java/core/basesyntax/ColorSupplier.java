@@ -1,14 +1,14 @@
 package core.basesyntax;
 
-import java.util.List;
 import java.util.Random;
-
+enum Color {
+    WHITE, RED, BLUE, GREEN, YELLOW, BLACK, PURPLE;
+}
 public class ColorSupplier {
     private final Random random = new Random();
-    private final List<String> colors = List.of("Red", "Blue", "Yellow", "White", "Purple");
 
     public String getRandomColor() {
-        int index = random.nextInt(colors.size());
-        return colors.get(index);
+        int index = random.nextInt(Color.values().length);
+        return Color.values()[index].toString();
     }
 }
