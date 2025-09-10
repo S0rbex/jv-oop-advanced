@@ -40,7 +40,8 @@ public class FigureSupplier {
     public Figure getDefaultFigure() {
         return new Circle(DEFAULT_COLOR, DEFAULT_RADIUS);
     }
-    private int randomaizer(int d){
+
+    private int randomaizer(int d) {
         return random.nextInt(d);
     }
 }
